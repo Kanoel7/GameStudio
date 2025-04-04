@@ -1,47 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gaming Studio Careers</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/styles.css">
-</head>
-<body>
-    
-    <!-- Navigation panel -->
-    <nav class="navbar navbar-expand-lg">
-        <div class="container">
-            <a class="gaming-studio-brand" href="#">Gaming Studio</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav me-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.html">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="careers.html">Careers</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="gallery.html">Gallery</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="contact.html">Contact</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="about.html">About Us</a>
-                    </li>
-                </ul>
-                <button class="register-btn text-white" onclick="window.location.href='contact.html'">Contact Us</button>
-            </div>
-        </div>
-    </nav>
-
-
-    <!-- Careers Header -->
+<?php 
+    include 'partials/header.php'; 
+?>
     
     <div class="site-section container mt-5">
         <h1 class="kyrylo-title mb-5">Current Openings</h1>
@@ -55,7 +14,7 @@
             <div class="job-meta">
                 <span class="job-type">Remote</span>
                 <span class="job-type">Full-time</span>
-                <button class="btn-glow btn-pink-glow" onclick="window.location.href='contact.html'">Apply Now</button>
+                <button class="btn-glow btn-pink-glow" onclick="window.location.href='contact.php'">Apply Now</button>
             </div>
         </div>
 
@@ -68,7 +27,7 @@
             <div class="job-meta">
                 <span class="job-type">Remote</span>
                 <span class="job-type">Full-time</span>
-                <button class="btn-glow btn-pink-glow" onclick="window.location.href='contact.html'">Apply Now</button>
+                <button class="btn-glow btn-pink-glow" onclick="window.location.href='contact.php'">Apply Now</button>
             </div>
         </div>
 
@@ -81,7 +40,7 @@
             <div class="job-meta">
                 <span class="job-type">Remote</span>
                 <span class="job-type">Full-time</span>
-                <button class="btn-glow btn-pink-glow" onclick="window.location.href='contact.html'">Apply Now</button>
+                <button class="btn-glow btn-pink-glow" onclick="window.location.href='contact.php'">Apply Now</button>
             </div>
         </div>
 
@@ -94,7 +53,7 @@
             <div class="job-meta">
                 <span class="job-type">Remote</span>
                 <span class="job-type">Contract</span>
-                <button class="btn-glow btn-pink-glow" onclick="window.location.href='contact.html'">Apply Now</button>
+                <button class="btn-glow btn-pink-glow" onclick="window.location.href='contact.php'">Apply Now</button>
             </div>
         </div>
     </div>

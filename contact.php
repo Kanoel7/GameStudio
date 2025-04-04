@@ -1,51 +1,13 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gaming Studio - Контакт</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/styles.css">
-</head>
-<body>
-    <!-- Navigation Panel -->
-    <nav class="navbar navbar-expand-lg">
-        <div class="container">
-            <a class="gaming-studio-brand" href="index.html">Gaming Studio</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav me-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.html">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="careers.html">Careers</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="gallery.html">Gallery</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="contact.html">Contact</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="about.html">About Us</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
+<?php 
+    include 'partials/header.php'; 
+?>
     <!-- Form -->
     <div class="container site-section">
         <div class="row justify-content-center">
             <div class="col-md-8 col-lg-6">
                 <h2 class="kyrylo-title text-center mb-5">Contact</h2>
                 <div class="contact-form-container">
-                    <form id="contactForm" novalidate onsubmit="return checkSubmittion()">
+                    <form id="contactForm" novalidate>
                         <!-- Name -->
                         <div class="mb-4">
                             <label for="name" class="form-label">Name</label>
@@ -145,6 +107,9 @@
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Custom JS -->
-    <script src="contact.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="js/contact.js"></script>
 </body>
 </html>

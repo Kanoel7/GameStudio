@@ -1,12 +1,10 @@
 // Form validation function
 function validateForm() {
-    let isValid = true;
-    
-    // Get form elements
     const name = document.getElementById('name');
     const email = document.getElementById('email');
     const message = document.getElementById('message');
     const privacy = document.getElementById('privacy');
+    let isValid = true;
 
     // Check name
     if (!name.value.trim()) {
@@ -18,7 +16,8 @@ function validateForm() {
     }
 
     // Check email
-    if (!email.value.trim() || !email.value.includes('@') || !email.value.includes('.')) {
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!email.value.trim() || !emailPattern.test(email.value)) {
         email.classList.add('is-invalid');
         isValid = false;
     } else {
@@ -47,10 +46,34 @@ function validateForm() {
     return isValid;
 }
 
-function checkSubmittion() {
-    if (validateForm()) {
-        window.location.href = 'thank-you.html';
-        return false;
+function showError(message) {
+    const form = document.getElementById('contactForm');
+    const errorDiv = document.createElement('div');
+    errorDiv.className = 'alert alert-danger mt-3';
+    errorDiv.textContent = message;
+    
+    const existingError = form.querySelector('.alert-danger');
+    if (existingError) {
+        existingError.remove();
     }
-    return false;
+    form.insertBefore(errorDiv, form.firstChild);
+    
+    setTimeout(() => {
+        errorDiv.remove();
+    }, 5000);
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('contactForm');
+    
+    if (form) {
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            if (validateForm()) {
+                window.location.href = 'thank-you.php';
+            } else {
+                showError('Please fill in all required fields correctly.');
+            }
+        });
+    }
+});
