@@ -1,3 +1,6 @@
+<?php
+require_once('_inc/autoload.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,6 +24,15 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav me-auto">
+                        
+                    <?php
+                    $menu = new Menu();
+                    $menuItems = $menu->index();
+                    foreach ($menuItems as $item) {
+                    echo '<li><a class="nav-link" href="' . $item['link'] . '">' . $item['label'] . '</a></li>';
+                    }
+                    ?>
+                    <!--
                         <li class="nav-item">
                             <a class="nav-link" href="index.php">Home</a>
                         </li>
@@ -36,6 +48,7 @@
                         <li class="nav-item">
                             <a class="nav-link" href="about.php">About Us</a>
                         </li>
+                    -->
                     </ul>
                     <button class="register-btn text-white" onclick="window.location.href='contact.php'">Contact Us</button>
                 </div>
