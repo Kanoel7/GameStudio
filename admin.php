@@ -1,12 +1,15 @@
+
 <?php
 include('partials/header.php');
+
+
 
 $db = new Database();
 $contact = new Contact($db);
 $contacts = $contact->index();
-//var_dump($contacts);
 
-// Vymazanie správy
+
+
 if (isset($_GET['delete'])) {
     $contact->destroy($_GET['delete']);
     
@@ -16,7 +19,8 @@ if (isset($_GET['delete'])) {
 
 ?>
 
-<section class="container">
+
+<section class="container mt-5 pt-5">
     <h1>Vítaj admin</h1>
 
     <h2>Kontakty</h2>
