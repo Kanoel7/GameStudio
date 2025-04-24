@@ -9,7 +9,7 @@ if(isset($_GET['id'])){
     //print_r($contactData);
 }
 ?>
-<div class="container">
+<div class="container mt-5 pt-5">
     <h1>Detail správy</h1>
     <p>Meno: <?php echo $contactData['name']?></p>
     <p>Email: <?php echo $contactData['email']?></p>
