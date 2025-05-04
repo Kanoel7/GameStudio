@@ -9,14 +9,32 @@ if(isset($_GET['id'])){
     //print_r($contactData);
 }
 ?>
-<div class="container mt-5 pt-5">
-    <h1>Detail správy</h1>
-    <p>Meno: <?php echo $contactData['name']?></p>
-    <p>Email: <?php echo $contactData['email']?></p>
-    <p>Message: <?php echo $contactData['message']?></p>
-
-    <a href="admin.php">Naspäť do admin rozhrania</a>
-</div>
+<section class="container mt-5 pt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <h2 class="kyrylo-title mb-4">Detail správy</h2>
+            <div class="contact-form-container">
+                <div class="p-4 mb-0">
+                    <div class="mb-4">
+                        <label class="form-label text-white mb-2">Meno</label>
+                        <p class="text-white"><?php echo htmlspecialchars($contactData['name'])?></p>
+                    </div>
+                    <div class="mb-4">
+                        <label class="form-label text-white mb-2">Email</label>
+                        <p class="text-white"><?php echo htmlspecialchars($contactData['email'])?></p>
+                    </div>
+                    <div class="mb-4">
+                        <label class="form-label text-white mb-2">Správa</label>
+                        <p class="text-white"><?php echo htmlspecialchars($contactData['message'])?></p>
+                    </div>
+                    <div class="text-center">
+                        <a href="admin.php" class="register-btn text-white text-decoration-none">Naspäť do admin rozhrania</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 
 <?php

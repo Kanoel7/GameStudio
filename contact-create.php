@@ -18,13 +18,30 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
 ?>
 
 <section class="container mt-5 pt-5">
-    <h1>Vytvorenie správy v adminovi</h1>
-    <form id="contact" method="POST">
-        <input type="text" placeholder="Vaše meno" id ="name" name="name" required><br>
-        <input type="email" placeholder="Váš email" id="email" name="email" required><br>
-        <textarea placeholder="Vaša správa" id="message" name="message" ></textarea><br>
-        <input type="submit" value="Odoslať">
-    </form>
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <h2 class="kyrylo-title mb-4">Vytvorenie správy v adminovi</h2>
+            <div class="contact-form-container">
+                <form id="contact" method="POST" class="p-4 mb-0">
+                    <div class="mb-4">
+                        <label for="name" class="form-label text-white mb-2">Vaše meno</label>
+                        <input type="text" class="form-control bg-dark text-white" placeholder="Vaše meno" id="name" name="name" required>
+                    </div>
+                    <div class="mb-4">
+                        <label for="email" class="form-label text-white mb-2">Váš email</label>
+                        <input type="email" class="form-control bg-dark text-white" placeholder="Váš email" id="email" name="email" required>
+                    </div>
+                    <div class="mb-4">
+                        <label for="message" class="form-label text-white mb-2">Vaša správa</label>
+                        <textarea class="form-control bg-dark text-white" placeholder="Vaša správa" id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="register-btn text-white">Odoslať</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 </section>
 
 <?php

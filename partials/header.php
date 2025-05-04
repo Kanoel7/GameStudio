@@ -50,7 +50,9 @@ require_once('_inc/autoload.php');
                         </li>
                     -->
                     </ul>
-                    <button class="register-btn text-white" onclick="window.location.href='contact.php'">Contact Us</button>
+                    <button class="register-btn text-white me-3" onclick="window.location.href='login.php'">Login</button>
+                    <button class="register-btn text-white" onclick="window.location.href='login.php'">Register</button>
+
                 </div>
             </div>
         </nav>
