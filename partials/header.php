@@ -1,5 +1,10 @@
 <?php
 require_once('_inc/autoload.php');
+session_start();
+$db = new Database();
+$auth = new Authenticate($db);
+
+print_r($_SESSION);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -50,9 +55,14 @@ require_once('_inc/autoload.php');
                         </li>
                     -->
                     </ul>
-                    <button class="register-btn text-white me-3" onclick="window.location.href='login.php'">Login</button>
-                    <button class="register-btn text-white" onclick="window.location.href='login.php'">Register</button>
-
+                    
+                    <?php if ($auth->isLoggedIn()): ?>
+                        <button class="register-btn text-white" onclick="window.location.href='logout.php'">Logout</button>
+                    <?php else: ?>
+                        <button class="register-btn text-white me-3" onclick="window.location.href='login.php'">Login</button>
+                        <button class="register-btn text-white" onclick="window.location.href='user-create.php'">Register</button>
+                    <?php endif; ?>
+                    
                 </div>
             </div>
         </nav>

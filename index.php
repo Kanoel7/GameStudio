@@ -27,7 +27,7 @@
                         They improve or embed advanced technologies such as physics engines, artificial intelligence,
                         and networking systems, troubleshoot numerous high-level technical issues and ensure cross-platform functionality.</p>
                          <!-- kreatívny bod    Learn More-->
-                    <button class="btn-glow btn-pink-glow" onclick="window.location.href='gallery.html'">Learn More</button>
+                    <button class="btn-glow btn-pink-glow" onclick="window.location.href='contact.php'">Contact Us</button>
                 </div>
             </div>
             <!-- Design -->
@@ -39,7 +39,7 @@
                         They create levels or goals that are difficult and entertaining for players, create captivating plotlines, and design the basic rules that govern a game.
                         To ensure that games are fun, fair, and interesting, this job requires a delicate balance between creativity and strategy; it cannot be undermined.
                         Designers coordinate with other members of the team in an attempt to enhance ideas and integrate outcomes of game testing.</p>
-                    <button class="btn-glow btn-pink-glow" onclick="window.location.href='gallery.html'">Learn More</button>
+                    <button class="btn-glow btn-pink-glow" onclick="window.location.href='contact.php'">Contact Us</button>
                 </div>
             </div>
             <!-- Development -->
@@ -51,7 +51,7 @@
                         Game designers are responsible for the whole development cycle of the game from conceptualization to production level.
                         They can code, merge audiovisuals, fix bugs, and manage overall performance of the game.
                         Mostly, developers are organized into teams to use the skills of engineers, designers, and even artists, to produce an interesting game.</p>
-                    <button class="btn-glow btn-pink-glow" onclick="window.location.href='gallery.html'">Learn More</button>
+                    <button class="btn-glow btn-pink-glow" onclick="window.location.href='contact.php'">Contact Us</button>
                 </div>
             </div>
             <!-- Art -->
@@ -63,7 +63,7 @@
                         These include 3D models, props, environments, and characters that convey the look and feel of a game.
                         The industry also demands knowledge of visual aesthetics: colors, lighting, composition as well as 3D modelling, texturing and rigging.
                         Game art is subject to technical restrictions and the game and its design.</p>
-                    <button class="btn-glow btn-pink-glow" onclick="window.location.href='gallery.html'">Learn More</button>
+                    <button class="btn-glow btn-pink-glow" onclick="window.location.href='contact.php'">Contact Us</button>
                 </div>
             </div>
         </div>

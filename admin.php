@@ -2,7 +2,13 @@
 <?php
 include('partials/header.php');
 
+
 $db = new Database();
+$auth = new Authenticate($db);
+$auth->requireLogin();
+
+// Získanie role prihláseného používateľa
+$userRole = $auth->getUserRole();
 // Kontakty
 $contact = new Contact($db);
 $contacts = $contact->index();
@@ -19,10 +25,15 @@ if (isset($_GET['delete'])) {
     exit;
 }
 // Vymazanie používateľa
-if (isset($_GET['delete_user'])) {
-    $user->destroy($_GET['delete_user']);
-    header("Location: admin.php");
-    exit;
+if ($userRole == 0) {
+    $user = new User($db);
+    $users = $user->index();
+    
+    if (isset($_GET['delete_user']) && $userRole == 0) {
+        $user->destroy($_GET['delete_user']);
+        header("Location: admin.php");
+        exit;
+    }
 }
 ?>
 
@@ -69,39 +80,33 @@ if (isset($_GET['delete_user'])) {
     
     <hr class="my-5">
     
-    <!-- Sekcia používateľov -->
-    <h2 class="section-title mb-4">Používatelia</h2>
-    <div class="mb-4">
-        <a href="user-create.php" class="register-btn text-white text-decoration-none">Vytvoriť používateľa</a>
-    </div>
-    <div class="table-responsive">
-        <table class="table table-dark table-hover" style="background: var(--dark-bg); border-radius: var(--border-radius-standard); overflow: hidden; box-shadow: var(--shadow-primary);">
-            <thead>
-                <tr style="background: var(--gradient-button);">
-                    <th class="px-4 py-3">ID</th>
-                    <th class="px-4 py-3">Meno</th>
-                    <th class="px-4 py-3">Email</th>
-                    <th class="px-4 py-3">Rola</th>
-                    <th class="px-4 py-3">Delete</th>
-                    <th class="px-4 py-3">Edit</th>
-                    <th class="px-4 py-3">Show</th>
+    <!-- Sekcia používateľov (iba pre adminov) -->
+    <?php if ($userRole == 0): ?>
+        <h2>Používatelia</h2>
+        <a href="user-create.php" class="button">Create User</a>
+        <table border="1">
+            <tr>
+                <th>ID</th>
+                <th>Meno</th>
+                <th>Email</th>
+                <th>Role</th>
+                <th>Delete</th>
+                <th>Edit</th>
+                <th>Show</th>
+            </tr>
+            <?php foreach($users as $u): ?>
+                <tr>
+                    <td><?= htmlspecialchars($u['id']) ?></td>
+                    <td><?= htmlspecialchars($u['name']) ?></td>
+                    <td><?= htmlspecialchars($u['email']) ?></td>
+                    <td><?= htmlspecialchars($u['role']) ?></td>
+                    <td><a href="?delete_user=<?= $u['id'] ?>" onclick="return confirm('Určite chcete vymazať tohto používateľa?')">Delete</a></td>
+                    <td><a href="user-edit.php?id=<?= $u['id'] ?>">Edit</a></td>
+                    <td><a href="user-show.php?id=<?= $u['id'] ?>">Show</a></td>
                 </tr>
-            </thead>
-            <tbody>
-                <?php foreach($users as $user): ?>
-                    <tr>
-                        <td class="px-4 py-3"><?= htmlspecialchars($user['id']) ?></td>
-                        <td class="px-4 py-3"><?= htmlspecialchars($user['name']) ?></td>
-                        <td class="px-4 py-3"><?= htmlspecialchars($user['email']) ?></td>
-                        <td class="px-4 py-3"><?= $user['role'] == 0 ? 'Admin' : 'User' ?></td>
-                        <td class="px-4 py-3"><a href="?deleteUser=<?= $user['id'] ?>" class="btn-glow btn-pink-glow text-decoration-none px-3 py-2 mx-2" onclick="return confirm('Určite chcete vymazať tohto používateľa?')">Delete</a></td>
-                        <td class="px-4 py-3"><a href="user-edit.php?id=<?= $user['id'] ?>" class="btn-glow btn-blue-glow text-decoration-none px-3 py-2 mx-2">Edit</a></td>
-                        <td class="px-4 py-3"><a href="user-show.php?id=<?= $user['id'] ?>" class="btn-glow btn-blue-glow text-decoration-none px-3 py-2 mx-2">Show</a></td>
-                    </tr>
-                <?php endforeach; ?>
-            </tbody>
+            <?php endforeach; ?>
         </table>
-    </div>
+    <?php endif; ?>
 </section>
 
 <?php
