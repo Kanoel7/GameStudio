@@ -195,6 +195,89 @@ ALTER TABLE `portfolio`
 ALTER TABLE `portfolio_categories`
   ADD CONSTRAINT `portfolio_categories_ibfk_1` FOREIGN KEY (`post_id`) REFERENCES `portfolio` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `portfolio_categories_ibfk_2` FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`) ON DELETE CASCADE;
+-- --------------------------------------------------------
+
+--
+-- Štruktúra tabuľky pre tabuľku `jobs`
+--
+
+CREATE TABLE `jobs` (
+  `id` int(11) NOT NULL,
+  `title` varchar(150) NOT NULL,
+  `department` varchar(100) NOT NULL,
+  `location` varchar(100) NOT NULL,
+  `type` varchar(50) NOT NULL,
+  `description` text NOT NULL,
+  `requirements` text NOT NULL,
+  `active` tinyint(1) NOT NULL DEFAULT 1,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Sťahujem dáta pre tabuľku `jobs`
+--
+
+INSERT INTO `jobs` (`id`, `title`, `department`, `location`, `type`, `description`, `requirements`, `active`, `created_at`) VALUES
+(1, 'Senior Game Developer', 'Development', 'Remote', 'Full-time', 'Join our team as a Senior Game Developer to create exciting and innovative games.', 'Minimum 5 years experience in game development. Proficiency in Unity or Unreal Engine.', 1, '2025-05-11 18:00:00'),
+(2, '3D Artist', 'Art', 'Remote', 'Full-time', 'Create stunning 3D models for our upcoming games.', 'Strong portfolio showcasing 3D modeling skills. Experience with Blender, Maya or 3DS Max.', 1, '2025-05-11 18:00:00'),
+(3, 'Game Designer', 'Design', 'Remote', 'Full-time', 'Design game mechanics and levels for our upcoming titles.', 'Experience in game design with a portfolio of previous work. Strong understanding of player psychology.', 1, '2025-05-11 18:00:00'),
+(4, 'UI/UX Designer', 'Design', 'Remote', 'Contract', 'Design intuitive and visually appealing user interfaces for our games.', 'Experience in UI/UX design for games. Proficiency in Adobe Creative Suite.', 1, '2025-05-11 18:00:00');
+
+-- --------------------------------------------------------
+
+--
+-- Štruktúra tabuľky pre tabuľku `job_applications`
+--
+
+CREATE TABLE `job_applications` (
+  `id` int(11) NOT NULL,
+  `job_id` int(11) NOT NULL,
+  `name` varchar(150) NOT NULL,
+  `email` varchar(150) NOT NULL,
+  `phone` varchar(20) NOT NULL,
+  `cover_letter` text DEFAULT NULL,
+  `status` enum('pending','reviewed','accepted','rejected') NOT NULL DEFAULT 'pending',
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Indexy pre tabuľku `jobs`
+--
+ALTER TABLE `jobs`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexy pre tabuľku `job_applications`
+--
+ALTER TABLE `job_applications`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `job_id` (`job_id`);
+
+--
+-- AUTO_INCREMENT pre exportované tabuľky
+--
+
+--
+-- AUTO_INCREMENT pre tabuľku `jobs`
+--
+ALTER TABLE `jobs`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT pre tabuľku `job_applications`
+--
+ALTER TABLE `job_applications`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- Obmedzenie pre exportované tabuľky
+--
+
+--
+-- Obmedzenie pre tabuľku `job_applications`
+--
+ALTER TABLE `job_applications`
+  ADD CONSTRAINT `job_applications_ibfk_1` FOREIGN KEY (`job_id`) REFERENCES `jobs` (`id`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

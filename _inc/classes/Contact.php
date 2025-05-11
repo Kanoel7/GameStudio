@@ -47,6 +47,13 @@ class Contact{
         $stmt->bindParam(':message', $message, PDO::PARAM_STR);
         return $stmt->execute();
     }
-
+    
+    // Get contacts for a specific user by email
+    public function getByEmail($email) {
+        $stmt = $this->db->prepare("SELECT * FROM contact WHERE email = :email ORDER BY id DESC");
+        $stmt->bindParam(':email', $email, PDO::PARAM_STR);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
 }
 ?>
